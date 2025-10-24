@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ML Predictor</title>
+</head>
+<body>
+    <h2>ML Prediction Form</h2>
+    <form id="predict-form">
+        <label>Temperature:</label>
+        <input type="number" name="temperature" step="any" required><br><br>
+
+        <label>Ambient Temperature:</label>
+        <input type="number" name="ambient_temperature" step="any" required><br><br>
+
+        <label>Sample:</label>
+        <input type="text" name="sample" required><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <h3 id="result"></h3>
+
+    <script>
+        const form = document.getElementById('predict-form');
+        const resultEl = document.getElementById('result');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const response = await fetch('/predict', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+            resultEl.innerText = 'Prediction :' + data.prediction;
+        });
+    </script>
+</body>
+</html>
