@@ -1,4 +1,4 @@
-# 🧠 Cement Strength Prediction – FastAPI App
+# 🧠 Concrete Strength Prediction – FastAPI App
 
 This project is a **FastAPI-based web application** that predicts the **strength tendency of cement samples** using a pre-trained **Logistic Regression model**.
 Users can input parameters like **temperature**, **ambient temperature**, and **sample type** to get instant predictions.
